@@ -102,6 +102,21 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    errorBtns[0].addEventListener('click', e => {
+      console.log("Console Log Demo");
+    });
+    errorBtns[1].addEventListener('click', e => {
+      console.error("Console Error Demo");
+    });
+    errorBtns[2].addEventListener('click', e => {
+      console.count("Count Button");
+    });
+    errorBtns[3].addEventListener('click', e => {
+      console.warn("Console Warn Button");
+    });
+    errorBtns[4].addEventListener('click', e => {
+      console.assert();
+    });
   </script>
 </body>
 
