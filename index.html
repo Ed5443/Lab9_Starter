@@ -95,6 +95,9 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
+      if( !/\D/.test(firstNum) == false || !/\D/.test(secondNum) == false){
+        throw new SyntaxError("Invalid or unxepected token");
+      }
       output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
     });
 
@@ -116,6 +119,58 @@
     });
     errorBtns[4].addEventListener('click', e => {
       console.assert();
+    });
+    errorBtns[5].addEventListener('click', e => {
+      console.clear();
+    });
+    errorBtns[6].addEventListener('click', e => {
+      console.dir(errorBtns[6]);
+    }); 
+    errorBtns[7].addEventListener('click', e => { 
+      console.dirxml(errorBtns[7]);
+    });
+    errorBtns[8].addEventListener('click', e => { 
+      console.group();
+    });
+    errorBtns[9].addEventListener('click', e => { 
+      console.groupEnd();
+    });
+    errorBtns[10].addEventListener('click', e => { 
+      console.table([["Softeware Engineering", 110],["Programming Languages", 130],["Algorithms", 101]]);
+    });
+    errorBtns[11].addEventListener('click', e => { 
+      console.time("Timer Button");
+    });
+    errorBtns[12].addEventListener('click', e => { 
+      console.timeEnd("Timer Button");
+    });
+    errorBtns[13].addEventListener('click', e => { 
+      function trace(){
+        function deep(){
+          function deeper() {
+            console.trace();
+          }
+          deeper();
+        }
+        deep();
+      } 
+      trace();
+    });
+    class ReferenceError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "ReferenceError";
+      }
+    }
+    class SyntaxError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "SyntaxError";
+      }
+    }
+    errorBtns[14].addEventListener('click', e => { 
+      
+      throw new ReferenceError("boom is not defined");
     });
   </script>
 </body>
